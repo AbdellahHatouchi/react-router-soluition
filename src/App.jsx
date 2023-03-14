@@ -1,24 +1,24 @@
 import React from "react";
+import Content from "./components/Content";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
 
 const App = () => {
   return (
-    <div className="wrapper">
-      <div className="header">
-        <h1>Learn code</h1>
-        <ul>
-          <li>
-            <a href="http://">home</a>
-          </li>
-          <li>
-            <a href="http://">faq</a>
-          </li>
-
-          <a href="http://">contact</a>
-        </ul>
+    <BrowserRouter>
+      <div className="wrapper">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Content />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+        <Footer />
       </div>
-      <div className="main">conent here</div>
-      <div className="footer">footer</div>
-    </div>
+    </BrowserRouter>
   );
 };
 
